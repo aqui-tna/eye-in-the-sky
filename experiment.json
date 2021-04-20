@@ -1,0 +1,95 @@
+{
+    "name": "manideep2510/eye-in-the-sky",
+    "url": "https://github.com/aqui-tna/eye-in-the-sky",
+    "python_version": "3.5",
+    "requirements": {
+      "req_file": "requirements.txt",
+      "pip": [],
+      "others": []
+    },
+    "to_run": {
+        "decision": false,
+        "reason": "The project uses deprecated functions and libraries"
+    },
+    "entries": [
+        {
+          "cmd": "python3 main_unet.py",
+          "main": "main_unet.py",
+          "steps": [
+              "training"
+          ],
+          "args_lib": null,
+          "args": [],
+          "ins": [
+              {
+              "type": "dir",
+              "location": "Inter-IIT-CSRE/The-Eye-in-the-Sky-dataset",
+              "artifact": "manual",
+              "ex_in_repo": true
+              }
+          ],
+          "outs": [
+              {
+                  "type": "file",
+                  "location": "model_onehot.h5",
+                  "artifact": "model",
+                  "ex_from": "manual",
+                  "ex_in_repo": false
+              }
+          ]
+          },
+          {
+            "cmd": "python3 test_unet.py",
+            "main": "test_unet.py",
+            "steps": [
+                "testing"
+            ],
+            "args_lib": null,
+            "args": [],
+            "ins": [
+                {
+                    "type": "file",
+                    "location": "model_onehot.h5",
+                    "artifact": "model",
+                    "ex_from": "manual",
+                    "ex_in_repo": false
+                },
+                {
+                    "type": "file",
+                    "location": "model_augment.h5",
+                    "artifact": "model",
+                    "ex_from": "manual",
+                    "ex_in_repo": false
+                }
+            ],
+            "outs": [
+                {
+                    "type": "dir",
+                    "location": "train_predictions",
+                    "artifact": "dataset",
+                    "ex_from": "manual",
+                    "ex_in_repo": true
+                },
+                {
+                    "type": "dir",
+                    "location": "test_output",
+                    "artifact": "dataset",
+                    "ex_from": "manual",
+                    "ex_in_repo": true
+                }
+            ]
+            }
+      ],
+    "ex_metrics": {
+      "metrics_files": [],
+      "prints": ["val_acc", "loss"],
+      "plots": [],
+      "others": []
+    },
+    "ex_hyperparams": {
+      "from_cmd": [],
+      "config_files": [],
+      "in_code": [],
+      "others": []
+    }
+  }
