@@ -1,0 +1,10 @@
+stages:
+  step0_training:
+    cmd: python3 main_unet.py
+    deps:
+    - main_unet.py
+    - Inter-IIT-CSRE/The-Eye-in-the-Sky-dataset
+  step1_testing:
+    cmd: python3 test_unet.py
+    deps:
+    - test_unet.py
