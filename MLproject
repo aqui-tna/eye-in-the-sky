@@ -1,0 +1,9 @@
+name: manideep2510/eye-in-the-sky
+conda_env: conda_eye-in-the-sky.yaml
+entry_points:
+  step0_training:
+    command: python3 main_unet.py
+  step1_testing:
+    command: python3 test_unet.py
+  main:
+    command: python ex_mlflow_multistep_main.py
